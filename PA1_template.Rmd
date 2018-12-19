@@ -13,7 +13,7 @@ Show any code that is needed to
 1. Load the data (i.e. \color{red}{\verb|read.csv()|}read.csv())
 2. Process/transform the data (if necessary) into a format suitable for your analysis
 
-```{r Loading and preprocessing the data}
+```{r Loading_data}
 # Load data
 unzip("activity.zip")
 data <- read.csv("activity.csv", header = TRUE, sep=",", stringsAsFactors = FALSE)
@@ -34,7 +34,7 @@ For this part of the assignment, you can ignore the missing values in the datase
 2. If you do not understand the difference between a histogram and a barplot, research the difference between them. Make a histogram of the total number of steps taken each day
 3. Calculate and report the mean and median of the total number of steps taken per day
 
-```{r Mean steps per day}
+```{r Mean_steps_per_day}
 
 # Calculate the total number of steps taken per day
 steps_by_day <- with(data, tapply(steps, date, sum))
@@ -55,7 +55,7 @@ median(steps_by_day, na.rm = TRUE)
 1. Make a time series plot (i.e. \color{red}{\verb|type = "l"|}type="l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
-```{r Average daily activity}
+```{r Average_daily_activity}
 
 # Calculate the average number of steps taken per interval
 steps_by_interval <- with(data, tapply(steps, interval, mean, na.rm = TRUE))
@@ -108,7 +108,7 @@ For this part the \color{red}{\verb|weekdays()|}weekdays() function may be of so
 1. Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
 2. Make a panel plot containing a time series plot (i.e. \color{red}{\verb|type = "l"|}type="l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 
-```{r Weekdays vs weekends}
+```{r Weekdays_vs_weekends}
 
 # Add column to indicate weekdays and weekends
 imputedData$dayType <- ifelse(weekdays(imputedData$date) %in% c("sábado","domingo"), "weekend", "weekday")

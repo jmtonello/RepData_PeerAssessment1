@@ -65,7 +65,7 @@ steps_by_day <- with(data, tapply(steps, date, sum))
 hist(steps_by_day)
 ```
 
-![](PA1_template_files/figure-html/Mean steps per day-1.png)<!-- -->
+![](PA1_template_files/figure-html/Mean_steps_per_day-1.png)<!-- -->
 
 ```r
 # Calculate the mean of the total number of steps taken per day
@@ -99,7 +99,7 @@ steps_by_interval <- with(data, tapply(steps, interval, mean, na.rm = TRUE))
 plot(names(steps_by_interval), steps_by_interval, type='l', main = "Average daily activity pattern", xlab = "Interval", ylab = "Average steps")
 ```
 
-![](PA1_template_files/figure-html/Average daily activity-1.png)<!-- -->
+![](PA1_template_files/figure-html/Average_daily_activity-1.png)<!-- -->
 
 ```r
 # Find interval with maximum number of average steps
@@ -211,4 +211,4 @@ library(lattice)
 xyplot(avg_steps ~ interval | dayType, data = steps_by_daytype_interval, type = 'l', layout=c(1,2))
 ```
 
-![](PA1_template_files/figure-html/Weekdays vs weekends-1.png)<!-- -->
+![](PA1_template_files/figure-html/Weekdays_vs_weekends-1.png)<!-- -->
